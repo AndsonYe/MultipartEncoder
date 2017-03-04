@@ -21,12 +21,15 @@ int main(int argc, char* argv[])
     {
         *fileStream = outFile;
 
+        //Use MultipartParser to get the encoded body content and boundary
         MultipartParser parser;
         parser.AddParameter("Filename", "1.jpg");
         parser.AddFile("file", "1.jpg");
         std::string boundary = parser.boundary();
         std::string body = parser.GenBodyContent();
-        std::cout << body << std::endl;
+        //std::cout << body << std::endl;
+
+        //Set up http client and request
         http_request req;
         http_client client(U("http://www.filedropper.com/index.php?xml=true"));
         req.set_method(web::http::methods::POST);
