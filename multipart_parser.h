@@ -9,11 +9,9 @@
 #ifndef GEN_MULTIPART_H_
 #define GEN_MULTIPART_H_
 
-#include <fstream>
 #include <vector>
 #include <string>
 #include <tuple>
-#include <future>
 
 namespace web{
 namespace http{

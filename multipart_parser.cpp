@@ -1,7 +1,9 @@
 #include "multipart_parser.h"
 #include <stdlib.h>
+#include <fstream>
 #include <time.h>
 #include <algorithm>
+#include <future>
 
 namespace web{
 namespace http{

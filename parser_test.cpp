@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
         parser.AddFile("file", "1.jpg");
         std::string boundary = parser.boundary();
         std::string body = parser.GenBodyContent();
-        //std::cout << body << std::endl;
+        std::cout << body << std::endl;
 
         //Set up http client and request
         http_request req;
@@ -50,7 +50,6 @@ int main(int argc, char* argv[])
     try
     {
         requestTask.wait();
-        //postTask.wait();
     }
     catch (const std::exception &e)
     {
