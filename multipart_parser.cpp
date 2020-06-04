@@ -58,18 +58,18 @@ const std::string &MultipartParser::GenBodyContent()
 
   for(size_t i = 0; i < files_.size(); ++i)
   {
-    std::string *filename = new std::string();
-    std::string *content_type = new std::string();
+    std::string filename;
+    std::string content_type;
     std::string file_content = futures[i].get();
-    _get_file_name_type(files_[i].second, filename, content_type);
+    _get_file_name_type(files_[i].second, &filename, &content_type);
     body_content_ += "\r\n--";
     body_content_ += boundary_;
     body_content_ += "\r\nContent-Disposition: form-data; name=\"";
     body_content_ += files_[i].first;
     body_content_ += "\"; filename=\"";
-    body_content_ += *filename;
+    body_content_ += filename;
     body_content_ += "\"\r\nContent-Type: ";
-    body_content_ += *content_type;
+    body_content_ += content_type;
     body_content_ += "\r\n\r\n";
     body_content_ += file_content;
   }
