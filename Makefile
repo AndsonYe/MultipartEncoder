@@ -6,6 +6,7 @@ SRC := $(wildcard $(SRC_DIR)/*.cpp)
 
 HEADERS := $(wildcard $(SRC_DIR)/*.h)
 
+#CXXFLAGS := -Wall -std=c++11
 CXXFLAGS := -Wall -Werror -std=c++11
 CXXFLAGS += -I./cpprestsdk/Release/include
 ifdef DEBUG
@@ -23,7 +24,7 @@ BIN := $(BUILD_DIR)/$(PROJECT)
 
 LDFLAGS := -L/usr/local/lib \
 		   -L./cpprestsdk/Release/build/Binaries \
-           -lcpprest -lboost_system -lssl -lcrypto
+           -lcpprest -lboost_system -lssl -lcrypto -pthread
 
 SRC_OBJS := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
